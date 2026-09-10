@@ -1,0 +1,22 @@
+@startuml
+' Diagrama de clases del ejemplo de agregación.
+
+' Clase que agrupa los parlantes.
+class Computadora {
+  - nombre : String
+  - parlantes : List<Parlante>
+  + Computadora(nombre : String)
+  + agregarParlante(parlante : Parlante) : void
+  + mostrarParlantes() : void
+}
+
+' Clase que puede existir por separado.
+class Parlante {
+  - marca : String
+  + Parlante(marca : String)
+  + getMarca() : String
+}
+
+' El rombo blanco indica agregación.
+Computadora "1" o-- "0..*" Parlante : parlantes
+@enduml
